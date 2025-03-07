@@ -36,25 +36,37 @@ class Node {
 
 class Solution {
   public:
+  
+  void helper(Node* root){
+      if (!root){
+          return ;
+      }
+      helper(root->left);
+      cout<<root->data<<" ";
+      helper(root->right);
+  }
+  
     // Function to return a list containing the inorder traversal of the tree.
     vector<int> inOrder(Node* root) {
         
         vector<int> arr;
+        helper(root);
         
         
-        if(root==NULL){
-            return arr;
-        }
         
-        vector<int> left= inOrder(root->left);
-        arr.insert(arr.end(), left.begin(),left.end());
+        // if(root==NULL){
+        //     return arr;
+        // }
         
-        arr.push_back(root->data);
+        // vector<int> left= inOrder(root->left);
+        // arr.insert(arr.end(), left.begin(),left.end());
         
-        vector<int> right=inOrder(root->right);
-        arr.insert(arr.end(),right.begin(),right.end());
+        // arr.push_back(root->data);
         
-        return arr;
+        // vector<int> right=inOrder(root->right);
+        // arr.insert(arr.end(),right.begin(),right.end());
+        
+         return arr;
         
     }
 };
